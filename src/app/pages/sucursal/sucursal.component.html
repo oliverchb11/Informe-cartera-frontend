@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div *ngFor="let sucursales of sucursal">
+            <div *ngFor="let clientes of cliente">
+                <table class="table table-bordered table-dark">
+                    <thead class="text-center">
+                        <h1>{{sucursales.name}}</h1>
+                    </thead>
+                </table>
+                <table class="table table-bordered table-dark">
+
+                    <thead>
+                        <tr>
+                            <th scope="col"># pedido</th>
+                            <th scope="col">fecha factura</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">DiasVencimiento</th>
+                            <th scope="col">Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{sucursales.no_pedido_c}}</th>
+                            <td>{{sucursales.invoice_date | date}}</td>
+                            <td>{{clientes.name}}</td>
+                            <td>{{diasVencimiento}}</td>
+                            <td>{{sucursales.saldo_c}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <h1>Facturas Sin Cancelar</h1>
+        <div *ngFor="let dias of nopagas">
+            <table class="table table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>{{dias.name}}</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
